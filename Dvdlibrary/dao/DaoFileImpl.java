@@ -9,24 +9,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Collection;
 
+ public class DaoFileImpl implements Dao {
 
-
-    public class DaoFileImpl implements Dao {
-
-
-        final private HashMap<String, Dvd> library;
+final private HashMap<String, Dvd> library;
         private String path;
 
         public DaoFileImpl(String path) {
             this.path = path;
             this.library = new HashMap<String, Dvd>();
         }
-
-        /**
-         * Adds a DVD to the library
-         * @param dvd the DVD object to add
-         */
-        @Override
+      @Override
         public void addDvd(Dvd dvd) {
             String title;
 
@@ -34,30 +26,15 @@ import java.util.Collection;
 
             library.put(title, dvd);
         }
-
-        /**
-         * Removes a DVD from the library
-         * @param name the title of the DVD to find and remove
-         */
-        @Override
+     @Override
         public void removeDvd(String name) {
             library.remove(name);
         }
-
-        /**
-         * Gets a DVD given the name
-         * @param name the title of the DVD to find
-         * @return the DVD
-         */
-        @Override
+    @Override
         public Dvd getDvd(String name) {
             return library.get(name);
         }
-
-        /**
-         * Loads the library of DVDs
-         */
-        @Override
+     @Override
         public void load() {
             Scanner scanner;
             library.clear();
@@ -91,10 +68,7 @@ import java.util.Collection;
             }
         }
 
-        /**
-         * Saves the library of DVDs
-         */
-        @Override
+       @Override
         public void save() {
             Collection<Dvd> dvds;
             PrintWriter writer;
@@ -123,11 +97,7 @@ import java.util.Collection;
             }
             writer.close();
         }
-
-        /**
-         * Gets the titles of all DVDs
-         */
-        @Override
+       @Override
         public String[] getTitles() {
             Object[] keys;
             String[] titles;
@@ -142,28 +112,15 @@ import java.util.Collection;
             return titles;
         }
 
-        /**
-         * Changes the filepath to load and save
-         * @param newPath the new path
-         */
         public void setPath(String newPath) {
             path = newPath;
         }
 
-        /**
-         * Gets the filepath for the library
-         * @return the file path
-         */
-        public String getPath() {
+      public String getPath() {
             return path;
         }
 
-        /**
-         * Unpacks a DVD from the library file
-         * @param data the String data of the DVD
-         * @return the Dvd object of the DVD
-         */
-        private Dvd unmarshal(String data) {
+      private Dvd unmarshal(String data) {
             String[] values;
             Dvd dvd;
 
@@ -186,11 +143,7 @@ import java.util.Collection;
             return dvd;
         }
 
-        /**
-         * Packs a Dvd object into a String
-         * @param dvd the Dvd object
-         * @return the String of the DVD
-         */
+       
         private String marshal(Dvd dvd) {
             String data;
 
