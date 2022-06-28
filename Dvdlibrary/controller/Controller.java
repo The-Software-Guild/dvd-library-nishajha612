@@ -4,11 +4,7 @@ import Dvdlibrary.ui.View;
 import  Dvdlibrary.dao.Dao;
 
 public class Controller {
-
-
-
-
-        final private View view;
+final private View view;
         final  private Dao dao;
         
         public Controller(View view, Dao dao) {
@@ -155,10 +151,7 @@ public class Controller {
             view.displayDvdInformation(dvd);
         }
 
-        /**
-         * Selects a DVD
-         */
-        private void selectDvd() {
+       private void selectDvd() {
             String title, selection;
             Dvd dvd;
 
@@ -198,7 +191,6 @@ public class Controller {
             } while (true);
         }
 
-       
         private void load() {
             dao.load();
         }
