@@ -10,20 +10,13 @@ public class Controller {
 
         final private View view;
         final  private Dao dao;
-        /**
-         * Constructs a new Controller given a view and dao to use
-         * @param view  the object that handles interactions with the user
-         * @param dao   the object that handles loading, saving, and accessing DVDs from the library
-         */
+        
         public Controller(View view, Dao dao) {
             this.view = view;
             this.dao = dao;
         }
 
-        /**
-         * Iteratively requests a command from the user and handles the command onto the Dvd library
-         */
-        public void run() {
+       public void run() {
             String selection;
 
             load();
@@ -94,10 +87,7 @@ public class Controller {
             view.say("Removed.");
         }
 
-        /**
-         * Gets what field to edit in the select DVD and what value to set, then sets it
-         * Updates the DVDs key in the library if the title has changed
-         */
+       
         private void editDvd(Dvd dvd) {
             String selection, stringValue, oldTitle;
             double doubleValue;
@@ -208,16 +198,12 @@ public class Controller {
             } while (true);
         }
 
-        /**
-         * Loads the library information
-         */
+       
         private void load() {
             dao.load();
         }
 
-        /**
-         * Saves and displays a goodbye message
-         */
+        
         private void exit() {
             dao.save();
             view.say("Goodbye.");
